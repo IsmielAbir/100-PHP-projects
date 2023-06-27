@@ -1,0 +1,87 @@
+*{
+    background-color: cyan;
+}
+#name1{
+    color: black;
+    font-weight: 700;
+    font-size: large;
+}
+.navbar-nav .nav-link {
+    color: black;
+    font-size: medium;
+}
+
+.navbar-nav .nav-link:hover{
+    background-color: black;
+    color: cyan;
+}
+#name1:hover{
+    background-color: black;
+    color: cyan;
+    padding: 8px 12px;
+}
+
+#name1::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin-top: 10px;
+    animation: lineAnimation 7s linear infinite; 
+    transition: all 0.5s ease;
+  }
+  @keyframes lineAnimation {
+    0% {
+      width: 0; /* Initial width */
+    }
+    50% {
+      width: 100%; /* Full width */
+    }
+    100% {
+      width: 0; /* Reset width */
+    }
+  }
+  #name:hover::after {
+    height: 2px; /* Increase the height on hover */
+    background-color: cyan; /* Change the background color on hover */
+  }
+
+
+  
+  .navbar-nav .nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background-color: black;
+    margin-top: 10px;
+    animation: lineAnimation 6s linear infinite; 
+    transition: all 0.5s ease;
+  }
+  
+  @keyframes lineAnimation {
+    0% {
+      width: 0; /* Initial width */
+    }
+    50% {
+      width: 100%; /* Full width */
+    }
+    100% {
+      width: 0; /* Reset width */
+    }
+  }
+  .navbar-nav .nav-link:hover::after {
+    height: 2px; 
+    background-color: cyan; 
+  }
+  .form-container {
+    display: flex;
+    justify-content: center;
+  }
+  form {
+    margin-top: 40px;
+    background-color: cyan;
+    width: 50%;
+    
+  }
