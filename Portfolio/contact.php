@@ -1,5 +1,6 @@
 <?php include 'base.php'; ?>
 
+
 <?php
 error_reporting(E_ALL ^ E_WARNING);
 
@@ -35,7 +36,7 @@ mysqli_query($conn, $sql)
 
 <form action="contact.php" method="post">
   
-    <h1>Contact Me</h1>
+    <h1>Contact</h1>
     
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Full Name</label>

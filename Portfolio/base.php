@@ -11,7 +11,7 @@
     <div>
         <nav class="navbar me-4 ms-4 navbar-expand-lg">
   <div class="container-fluid">
-    <a id="name1" class="navbar-brand" href="./index.php">Md. Ismiel Hossen Abir</a>
+    <a id="name1" class="navbar-brand" href="./index.php">Philosopher Riemann</a>
    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
      

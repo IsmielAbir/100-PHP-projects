@@ -85,3 +85,26 @@
     width: 50%;
     
   }
+.bgColor{
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: cyan;
+  border: 2px solid black;
+
+}
+
+.text{
+  margin-left: 10px;
+  background-color: cyan;
+}
+
+.marg{
+ margin-left: 40px;
+ margin-right: 80px;
+ margin-bottom: 20px;
+ margin-top: 15px;
+}
+.mm{
+  background-color: cyan !important;
+
+}
