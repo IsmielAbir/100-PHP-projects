@@ -13,6 +13,7 @@
 <?php
 error_reporting(E_ALL ^ E_WARNING);
 
+
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $title = $_POST['title'];
         $dsc = $_POST['dsc'];
@@ -34,6 +35,7 @@ error_reporting(E_ALL ^ E_WARNING);
 
     mysqli_query($conn, $sql);
 
+    
 ?>
 <div class="form-container">
 
@@ -72,6 +74,7 @@ error_reporting(E_ALL ^ E_WARNING);
   </thead>
   <tbody>
 <?php
+
     $selectQuery = "select * from `crud`";
     $result = mysqli_query($conn, $selectQuery);
     if($result>0){
@@ -82,7 +85,9 @@ error_reporting(E_ALL ^ E_WARNING);
       <th scope='row'>". $id . "</th>
       <td>". $row['title'] . "</td>
       <td>". $row['description'] . "</td>
-      <td><button class='btn btn-primary'>Edit</button><button class='btn btn-primary' id='delete'>Delete</button></td>
+      <td><button class='btn btn-primary'>Edit</button>
+      <button class='delete btn btn-sm btn-primary' onclick='deleteElementById(this)' >Delete</button>
+      </td>
     </tr>";
         }
     }
