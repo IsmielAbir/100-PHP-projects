@@ -9,24 +9,15 @@ $error = false;
         $pass = $_POST['pass'];
         $confirm = $_POST['confirm'];
         if($pass == $confirm){
-          $servername = "localhost";
-          $username = "root";
-          $password = "";
-          $databasse = "login";
-      
-          $conn = mysqli_connect($servername, $username, $password, $databasse);
-      
-          if(!$conn){
-              die("Connection Failed");
-          }
-          $sql = "INSERT INTO `signup` (`email`, `pass`, `confirm`) VALUES ('$email', '$pass', '$confirm')";
+         $hash = password_hash($pass,  PASSWORD_DEFAULT);
+          $sql = "INSERT INTO `signup` (`email`, `pass`, `confirm`) VALUES ('$email', '$hash', '$confirm')";
 
         mysqli_query($conn, $sql);
         $login = true;
           
         }
         else{
-          $error = true;
+          $error = "Invalid";
           
         }
         

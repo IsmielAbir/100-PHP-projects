@@ -1,32 +1,57 @@
 <?php include 'base.php' ?>
 
-
 <?php
 error_reporting(E_ALL ^ E_WARNING);
-
+$login = false;
+$error = false;
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $email = $_POST['email'];
         $pass = $_POST['pass'];
-        $confirm = $_POST['confirm'];
-    }
+          
+          $sql = "Select * from `signup` where email='$email' AND pass='$pass'";
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $databasse = "login";
+        $result = mysqli_query($conn, $sql);
+        $num = mysqli_num_rows($result);
+        if($num == 1){
+        $login = true;
+        session_start();
+        $_SESSION['loggedin'] = true;
+        $_SESSION['email'] = $email;
+        header("location: index.php");
 
-    $conn = mysqli_connect($servername, $username, $password, $databasse);
+        }
+          
+        }
+        else{
+          $error = "Invalid";
+          
+        }
+        
+    
 
-    if(!$conn){
-        die("Connection Failed");
-    }
+   
 
-    $sql = "select * from `signup` where `email` and `pass`";
-
-    mysqli_query($conn, $sql);
+    
 
 ?>
-
+ <?php
+    if($login){
+    echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> You are logged in
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div> ';
+    }
+    if($error){
+    echo ' <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> '. $error.'
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div> ';
+    }
+    ?>
 
 <h1 class='container mb-4'>Login</h1>
 <form class='container' action="login.php" method='post'>
@@ -42,6 +67,7 @@ error_reporting(E_ALL ^ E_WARNING);
     <input name="pass" type="password" id="pass" class="form-control" id="exampleInputPassword1">
   </div>
 
+  
 
   
   <button type="submit" class="btn btn-primary">Submit</button>

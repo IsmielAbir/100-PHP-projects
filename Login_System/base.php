@@ -7,6 +7,21 @@
     <title>Welcome</title>
 </head>
 <body>
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$databasse = "login";
+
+$conn = mysqli_connect($servername, $username, $password, $databasse);
+
+if(!$conn){
+    die("Connection Failed");
+}
+
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">Log</a>

@@ -1,1 +1,7 @@
-<?php include 'base.php' ?>
+
+<?php
+session_unset();
+session_destroy();
+header("location: login.php");
+exit;
+?>
